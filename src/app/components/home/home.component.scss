@@ -1,0 +1,57 @@
+.sidenav-container {
+  height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.sidenav {
+  width: 250px;
+  background-color: #413737;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-buttons button {
+  width: 100%;
+  text-align: left;
+  justify-content: flex-start;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.nav-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  // background-color: #413737;
+}
+
+.mat-sidenav-content {
+  transition: margin-left 0.3s ease;
+}
+
+.content-shift {
+  margin-left: 250px;
+}
+
+.main-content {
+  padding: 24px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: transform 0.3s ease;
+}

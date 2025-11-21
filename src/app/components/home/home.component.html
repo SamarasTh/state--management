@@ -1,0 +1,31 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav [(opened)]="isSidenavOpen" mode="side" class="sidenav">
+        <nav class="nav-buttons">
+            <button mat-raised-button color="accent" routerLink="" (click)="sidenav.close()">
+                Home
+            </button>
+            <button mat-raised-button  routerLink="teams" (click)="sidenav.close()">
+                Teams
+            </button>
+            <button mat-raised-button routerLink="projects" (click)="sidenav.close()">
+                Projects
+            </button>
+            <button mat-raised-button routerLink="settings" (click)="sidenav.close()">
+                Settings
+            </button>
+        </nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content [class.content-shift]="isSidenavOpen">
+        <mat-toolbar color="primary">
+            <button mat-icon-button (click)="toggleSidenav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Live Coding!</span>
+        </mat-toolbar>
+
+        <div class="main-content">
+            <router-outlet></router-outlet> 
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

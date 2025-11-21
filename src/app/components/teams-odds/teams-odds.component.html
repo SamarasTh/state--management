@@ -1,0 +1,27 @@
+@for (league of groupedLeagues(); track league.id) {
+<div class="league-container">
+    <img [src]="league.logo"  class="league-logo" alt="">
+    <h3>{{ league.name }}</h3>
+    <div class="teams-container">
+      @for (team of league.teams; track team.name) {
+        <div class="odds-container">
+          <div class="name">{{ team.name }}</div>
+          <div 
+            class="odds"
+            [style.color]="
+              team.previousOdds == null
+                ? 'black'
+                : team.odds > team.previousOdds
+                ? 'green'
+                : team.odds < team.previousOdds
+                ? 'red'
+                : 'black'
+            "
+          >
+            {{ team.odds.toFixed(2) }}
+          </div>
+        </div>
+      }
+    </div>
+</div>
+}

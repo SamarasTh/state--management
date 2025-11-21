@@ -1,0 +1,58 @@
+:host {
+  display: inline-flex;
+  gap: 12px;
+  width: 100%;
+
+  .league-container {
+    display: flex;
+    flex-direction: column;
+
+    .league-logo {
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      height: 100px;
+      width: 100px;
+    }
+    h3 {
+      font-weight: 700;
+      font-family:
+        "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+    background-color: beige;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: black;
+    align-items: center;
+    border-radius: 16px;
+    margin: 36px;
+    width: inherit;
+    gap: 24px;
+    .teams-container {
+      display: inline-flex;
+      gap: 16px;
+
+      .odds-container {
+        text-align: center;
+        border: solid 1px gray;
+        padding: 12px 14px;
+        border-radius: 20px;
+
+        &:hover {
+          border: solid 1px beige;
+        }
+
+        .name {
+          font-weight: 700;
+        }
+        .odds {
+          font: 600;
+        }
+      }
+    }
+  }
+}
