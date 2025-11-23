@@ -1,0 +1,5 @@
+@for (fact of (dogApi$ | async)?.facts; track fact.id) {
+  <div class="dog-facts">{{ fact }}</div>
+}
+
+<button mat-raised-button (click)="fetchAnotherFact()">One more fact</button>
