@@ -2,9 +2,13 @@ export interface Product {
   id: string;
   title: string;
   price: number;
-  imageurl: string;
+  images: Image[];
 }
 
 export interface ProductResponse {
   products: Product[];
+}
+
+export interface Image{
+  image:string;
 }

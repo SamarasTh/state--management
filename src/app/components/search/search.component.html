@@ -4,18 +4,24 @@
 
     <mat-icon matPrefix>search</mat-icon>
 
-    <input
-      matInput
-      [formControl]="searchControl"
-    />
+    <input matInput [formControl]="searchControl" />
   </mat-form-field>
+
   @if (products().length > 0) {
-    <ul class="products">
-      <li *ngFor="let product of products(); trackBy: trackById">
-        {{ product.title }} - ${{ product.price }}
-      </li>
-    </ul>
+    <div class="products">
+      @for (product of products(); track product.id) {
+        <div class="product">
+          @if (product.images.length > 0) {
+            <img width="150" height="150" [src]="product.images[0]" />
+          }
+          <p>{{ product?.title }}</p>
+          <div>${{ product?.price }}</div>
+        </div>
+      }
+    </div>
   } @else {
-    <div class="no-results">{{ranOnce() ? 'Did no find anything..':''}}</div>
+    <div class="no-results">
+      {{ ranOnce() ? "Nothing found.." : "" }}
+    </div>
   }
 </section>
