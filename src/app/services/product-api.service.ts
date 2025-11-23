@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root', // ✅ root injector
+  providedIn: 'root',
 })
 export class ProductApiService {
   private apiUrl = 'https://dummyjson.com/products';
@@ -18,7 +18,7 @@ export class ProductApiService {
     return this.httpClient.get<ProductResponse>(url).pipe(
       catchError((err) => {
         console.error('API call failed', err);
-        return of({ products: [] }); // ✅ return correct fallback type
+        return of({ products: [] });
       }),
     );
   }
