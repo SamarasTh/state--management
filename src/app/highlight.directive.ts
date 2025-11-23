@@ -20,6 +20,7 @@ export class HighlightDirective {
 
   @HostListener('mouseenter') onMouseEnter() {
     this.renderer.setStyle(this.el.nativeElement, 'color', this.highlight);
+    this.renderer.setStyle(this.el.nativeElement, 'cursor', 'pointer');
   }
 
   @HostListener('mouseleave') onMouseLeave() {
