@@ -1,0 +1,25 @@
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+  flex-direction: column;
+
+  .search-field {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    cursor: pointer;
+
+    mat-icon {
+      color: rgb(173, 127, 83);
+    }
+  }
+
+  .products {
+    color: bisque;
+    li:hover{
+        color: aqua;
+    }
+  }
+}

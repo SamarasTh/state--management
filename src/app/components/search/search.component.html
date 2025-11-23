@@ -1,0 +1,22 @@
+<section class="search-container">
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Search products</mat-label>
+
+    <mat-icon matPrefix>search</mat-icon>
+
+    <input
+      matInput
+      [formControl]="searchControl"
+      placeholder="Type product name..."
+    />
+  </mat-form-field>
+  @if (products().length > 0) {
+    <ul class="products">
+      <li *ngFor="let product of products(); trackBy: trackById">
+        {{ product.title }} - ${{ product.price }}
+      </li>
+    </ul>
+  } @else {
+    <div class="no-results">{{ranOnce() ? 'Did no find anything..':''}}</div>
+  }
+</section>

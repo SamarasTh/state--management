@@ -1,6 +1,7 @@
 import { DogFactsComponent } from './components/dog-facts/dog-facts.component';
 import { HomeComponent } from './components/home/home.component';
 import { Routes } from '@angular/router';
+import { SearchComponent } from './components/search/search.component';
 
 export const routes: Routes = [
   {
@@ -19,6 +20,13 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./components/dog-facts/dog-facts.component').then(
             (m) => DogFactsComponent,
+          ),
+      },
+      {
+        path: 'search',
+        loadComponent: () =>
+          import('./components/search/search.component').then(
+            (m) => SearchComponent,
           ),
       },
     ],
