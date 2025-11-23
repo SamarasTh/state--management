@@ -1,5 +1,5 @@
 :host {
-  display: inline-flex;
+  display: flex;
   gap: 12px;
   width: 100%;
 
@@ -33,9 +33,10 @@
     width: inherit;
     gap: 24px;
     .teams-container {
-      display: inline-flex;
+      display: flex;
       gap: 16px;
-
+      flex-wrap: wrap;
+      justify-content: center;
       .odds-container {
         text-align: center;
         border: solid 1px gray;

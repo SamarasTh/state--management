@@ -1,31 +1,23 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav [(opened)]="isSidenavOpen" mode="side" class="sidenav">
-        <nav class="nav-buttons">
-            <button mat-raised-button color="accent" routerLink="" (click)="sidenav.close()">
-                Home
-            </button>
-            <button mat-raised-button  routerLink="teams" (click)="sidenav.close()">
-                Teams
-            </button>
-            <button mat-raised-button routerLink="dog-facts" (click)="sidenav.close()">
-                Dog facts
-            </button>
-            <button mat-raised-button routerLink="search" (click)="sidenav.close()">
-                Products
-            </button>
-        </nav>
-    </mat-sidenav>
+  <mat-sidenav #sidenav [(opened)]="isSidenavOpen" mode="side" class="sidenav">
+    <nav class="nav-buttons">
+      <button mat-raised-button color="accent" routerLink="">Home</button>
+      <button mat-raised-button routerLink="teams">Teams</button>
+      <button mat-raised-button routerLink="dog-facts">Dog facts</button>
+      <button mat-raised-button routerLink="search">Products</button>
+    </nav>
+  </mat-sidenav>
 
-    <mat-sidenav-content [class.content-shift]="isSidenavOpen">
-        <mat-toolbar color="primary">
-            <button mat-icon-button (click)="toggleSidenav()">
-                <mat-icon>menu</mat-icon>
-            </button>
-            <span>Live Coding!</span>
-        </mat-toolbar>
+  <mat-sidenav-content [class.content-shift]="isSidenavOpen">
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="toggleSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Live Coding!</span>
+    </mat-toolbar>
 
-        <div class="main-content">
-            <router-outlet></router-outlet> 
-        </div>
-    </mat-sidenav-content>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
