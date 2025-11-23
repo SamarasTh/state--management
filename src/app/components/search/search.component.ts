@@ -17,6 +17,7 @@ import {
   tap,
 } from 'rxjs';
 
+import { HighlightDirective } from '../../highlight.directive';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -31,14 +32,13 @@ import { ProductApiService } from '../../services/product-api.service';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    
-],
+    HighlightDirective,
+  ],
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchComponent implements OnInit {
-  
   productApiService = inject(ProductApiService);
 
   searchControl = new FormControl('');
