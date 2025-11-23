@@ -9,11 +9,13 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
 import {
   Observable,
+  Subject,
   debounceTime,
   distinctUntilChanged,
   filter,
   map,
   switchMap,
+  takeUntil,
   tap,
 } from 'rxjs';
 
@@ -40,6 +42,7 @@ import { ProductApiService } from '../../services/product-api.service';
 })
 export class SearchComponent implements OnInit {
   productApiService = inject(ProductApiService);
+  destroy$ = new Subject<void>();
 
   searchControl = new FormControl('');
   products = signal<Product[]>([]);
@@ -66,6 +69,12 @@ export class SearchComponent implements OnInit {
       debounceTime(300),
       distinctUntilChanged(),
       switchMap((term) => this.productApiService.search(term)),
+      takeUntil(this.destroy$)
     );
+  }
+
+  ngOnDestroy(){
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
