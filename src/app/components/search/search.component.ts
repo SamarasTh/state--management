@@ -1,4 +1,19 @@
 import {
+  BehaviorSubject,
+  Observable,
+  Subject,
+  catchError,
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  map,
+  switchMap,
+  take,
+  takeUntil,
+  tap,
+  throwError,
+} from 'rxjs';
+import {
   ChangeDetectionStrategy,
   Component,
   OnInit,
@@ -7,17 +22,6 @@ import {
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
-import {
-  Observable,
-  Subject,
-  debounceTime,
-  distinctUntilChanged,
-  filter,
-  map,
-  switchMap,
-  takeUntil,
-  tap,
-} from 'rxjs';
 
 import { HighlightDirective } from '../../highlight.directive';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -43,6 +47,7 @@ import { ProductApiService } from '../../services/product-api.service';
 export class SearchComponent implements OnInit {
   productApiService = inject(ProductApiService);
   destroy$ = new Subject<void>();
+  blue$ = new BehaviorSubject<number>(3);
 
   searchControl = new FormControl('');
   products = signal<Product[]>([]);
@@ -68,12 +73,13 @@ export class SearchComponent implements OnInit {
       tap((term) => this.resetSearch(term)),
       debounceTime(300),
       distinctUntilChanged(),
+      filter((term) => term.length > 2),
       switchMap((term) => this.productApiService.search(term)),
-      takeUntil(this.destroy$)
+      takeUntil(this.destroy$),
     );
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
   }
